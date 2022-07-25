@@ -6,7 +6,7 @@ import style from './AddPost.css'
 function AddPost(props) {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    type: 'coding',
+    type: '',
     headline: '',
     details: '',
     link: '',
@@ -48,7 +48,7 @@ function AddPost(props) {
             value={formData.type}
             onChange={handleChange}
           >
-            <option value="coding">Select...</option>
+            <option>Select...</option>
             <option value="coding">Coding Recommendation/Resource</option>
             <option value="healthy">Healthy Habit Hack</option>
             <option value="job">Job Search Ideas</option>
