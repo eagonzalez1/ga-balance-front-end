@@ -5,13 +5,20 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
       {user ?
-        <nav>
-          <ul>
-            <li>Welcome, {user.name}</li>
-            <li><Link to="/profiles">Profiles</Link></li>
-            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
-            <li><Link to="/changePassword">Change Password</Link></li>
-          </ul>
+        <nav className='navbar-div'>
+          <h2>GA_balance</h2>
+          <NavLink to='/posts/new'>
+            <button>Add Post</button>
+          </NavLink>
+          <NavLink to='/profiles'>
+            <button>Profiles</button>
+          </NavLink>
+          <NavLink to="" onClick={handleLogout}>
+          <button>Log Out</button>
+          </NavLink>
+          <NavLink to='/changePassword'>
+            <button>Change Password</button>
+          </NavLink>
         </nav>
       :
         <nav className='navbar-div'>
