@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import styles from './NavBar.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -13,11 +14,14 @@ const NavBar = ({ user, handleLogout }) => {
           </ul>
         </nav>
       :
-        <nav>
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
+        <nav className='navbar-div'>
+          <h2>GA_balance</h2>
+          <NavLink to='/login'>
+            <button>Log In</button>
+          </NavLink>
+          <NavLink to='/signup'>
+            <button>Sign Up</button>
+          </NavLink>
         </nav>
       }
     </>
