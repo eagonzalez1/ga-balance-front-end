@@ -1,6 +1,9 @@
 import { useState } from "react"
+import style from './AddPost.css'
 
 function AddPost(props) {
+  
+
 	return (
 		<>
 			<h1>Add Post</h1>
@@ -49,7 +52,7 @@ function AddPost(props) {
 						name="link"
 					/>
 				</div>
-				<div className="d-grid">
+				<div className="addPost-form">
 					<button
 						type="submit"
 						className="btn btn-primary btn-fluid"
