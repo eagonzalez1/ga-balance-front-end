@@ -7,6 +7,9 @@ const NavBar = ({ user, handleLogout }) => {
       {user ?
         <nav className='navbar-div'>
           <h2>GA_balance</h2>
+          <NavLink to='/'>
+            <button>Home</button>
+          </NavLink>
           <NavLink to='/posts/new'>
             <button>Add Post</button>
           </NavLink>

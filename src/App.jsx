@@ -8,10 +8,12 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import AddPost from './pages/AddPost/AddPost'
+import * as postService from "./services/postService"
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
+  const [posts, setPosts] = useState([])
 
   const handleLogout = () => {
     authService.logout()
@@ -21,6 +23,21 @@ const App = () => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+  }
+
+  const handleAddPost = async (postData, photo) => {
+    const newPost = await postService.create(postData)
+    setPosts([...posts, newPost])
+    if (photo) {
+      newPost.photo = await postPhotoHelper(photo, newPost._id)
+    }
+    navigate('/')
+  }
+
+  const postPhotoHelper = async (photo, id) => {
+    const photoData = new FormData()
+    photoData.append('photo', photo)
+    return await postService.addPhoto(photoData, id)
   }
 
   return (
@@ -56,7 +73,7 @@ const App = () => {
             <Route
               path="/posts/new"
               element={
-                <AddPost />
+                <AddPost handleAddPost={handleAddPost} />
               }
             />
           </Routes>

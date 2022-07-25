@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import style from './AddPost.css'
 
+
 function AddPost(props) {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -31,11 +32,6 @@ function AddPost(props) {
     } catch (err) {
         console.log(err)
       }
-    }
-  
-    const {review} = formData
-    const isFormInvalid = () => {
-      return !(review)
     }
 
 	return (
