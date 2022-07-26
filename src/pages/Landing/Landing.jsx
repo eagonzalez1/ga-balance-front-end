@@ -1,9 +1,31 @@
+import PostCard from '../../components/PostCard/PostCard'
 import styles from './Landing.module.css'
 
-const Landing = ({ user }) => {
+
+const Landing = (props) => {
   return (
-    <main className={styles.container}>
-      <h1>hello, {user ? user.name : 'friend'}</h1>
+    <main className='posts-container'>
+      <h1>Hi, {props.user ? props.user.name : 'friend'}</h1>
+      <div className='coding-container'>
+        {props.codingArr.map(post =>
+          <PostCard
+            key={post._id}
+            user={props.user} 
+            post={post} 
+            handleDeletePost={props.handleDeletePost}
+          />  
+        )}
+        
+      </div>
+      <div className='healthy-container'>
+
+      </div>
+      <div className='job-container'>
+
+      </div>
+      <div className='entertainment-container'>
+
+      </div>
     </main>
   )
 }

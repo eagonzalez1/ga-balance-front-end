@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
@@ -34,11 +34,37 @@ const App = () => {
     navigate('/')
   }
 
+  useEffect (() => {
+    const fetchAllPosts = async () => {
+      const postData = await postService.getAll()
+      setPosts(postData)
+    }
+    fetchAllPosts()
+  },[])
+
+  const handleDeletePost = async postId => {
+    const deletedPost = await postService.deletePost(postId)
+    const newPostsArray = posts.filter(post => post._id !== deletedPost._id)
+    setPosts(newPostsArray)
+    navigate('/')
+  }
+
   const postPhotoHelper = async (photo, id) => {
     const photoData = new FormData()
     photoData.append('photo', photo)
     return await postService.addPhoto(photoData, id)
   }
+
+  const sortedArr = posts.sort(function (a, b) {
+    return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
+  })
+  console.log('sorted', sortedArr)
+  const codingArr = sortedArr.filter(post => post.type === 'coding')
+  const healthyArr = sortedArr.filter(post => post.type === 'healthy')
+  const jobArr = sortedArr.filter(post => post.type === 'job')
+  const entertainmentArr = sortedArr.filter(post => post.type === 'entertainment')
+
+  console.log(codingArr)
 
   return (
     <>
@@ -47,7 +73,13 @@ const App = () => {
         <main>
 
           <Routes>
-            <Route path="/" element={<Landing user={user} />} />
+            <Route path="/" element=
+              {<Landing 
+                user={user}
+                posts={posts}
+                codingArr={codingArr}
+                handleDeletePost={handleDeletePost}
+                />} />
             <Route
               path="/signup"
               element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

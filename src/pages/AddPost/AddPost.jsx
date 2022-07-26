@@ -65,14 +65,14 @@ function AddPost(props) {
             value={formData.headline}
             onChange={handleChange}
 					/>
-          <label htmlFor="description-input" className="form-label">
+          <label htmlFor="details-input" className="form-label">
 						Details
 					</label>
 					<textarea 
 						type="text"
 						className="form-input"
             rows="5"
-						id="description-input"
+						id="details-input"
 						name="details"
             value={formData.details}
             onChange={handleChange}
