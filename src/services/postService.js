@@ -53,9 +53,6 @@ export {
   create,
   getAll,
   deletePost,
-  // updatePost,
   addPhoto,
   getPostDetails,
-  // addComment,
-  // deleteComment,
 }

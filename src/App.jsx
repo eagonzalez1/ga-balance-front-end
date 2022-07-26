@@ -5,10 +5,12 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
+import ProfilePosts from './pages/ProfilePosts/ProfilePosts'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import AddPost from './pages/AddPost/AddPost'
 import * as postService from "./services/postService"
+import style from './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -58,20 +60,18 @@ const App = () => {
   const sortedArr = posts.sort(function (a, b) {
     return new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
   })
-  console.log('sorted', sortedArr)
   const codingArr = sortedArr.filter(post => post.type === 'coding')
   const healthyArr = sortedArr.filter(post => post.type === 'healthy')
   const jobArr = sortedArr.filter(post => post.type === 'job')
   const entertainmentArr = sortedArr.filter(post => post.type === 'entertainment')
+  const profileArr = sortedArr.filter(post => post.profile === user?.profile)
 
-  console.log(codingArr)
 
   return (
     <>
-      <div>
+      <div className='page-view'>
         <NavBar user={user} handleLogout={handleLogout} />
-        <main>
-
+        <main className='main'>
           <Routes>
             <Route path="/" element=
               {<Landing 
@@ -109,6 +109,17 @@ const App = () => {
               path="/posts/new"
               element={
                 <AddPost handleAddPost={handleAddPost} />
+              }
+            />
+            <Route
+              path="/profile-posts/:id"
+              element={
+                <ProfilePosts 
+                  user={user}
+                  posts={posts}
+                  profileArr={profileArr}
+                  handleDeletePost={handleDeletePost}
+                />
               }
             />
           </Routes>

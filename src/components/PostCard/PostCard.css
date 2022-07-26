@@ -9,6 +9,10 @@
   margin-bottom: 15px;
 }
 
+img {
+  max-width: 300px;
+}
+
 h3 {
   margin-top: 0;
 }
@@ -31,3 +35,8 @@ h3 {
   border-radius: 8px;
   margin-bottom: 5px;
 }
+
+.link-para {
+  margin-top: 0;
+}
+
