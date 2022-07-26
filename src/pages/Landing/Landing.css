@@ -1,0 +1,24 @@
+
+
+@media only screen and (min-width: 768px) {
+  .posts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+  .posts-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+
+

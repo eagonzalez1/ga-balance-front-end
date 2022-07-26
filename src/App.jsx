@@ -78,6 +78,9 @@ const App = () => {
                 user={user}
                 posts={posts}
                 codingArr={codingArr}
+                healthyArr={healthyArr}
+                jobArr={jobArr}
+                entertainmentArr={entertainmentArr}
                 handleDeletePost={handleDeletePost}
                 />} />
             <Route
