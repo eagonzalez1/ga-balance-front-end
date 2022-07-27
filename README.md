@@ -4,7 +4,7 @@
 </br></br>
 
 
-This is the front end of a decoupled MERN Stack app that includes JWT Authentication. When combined with the back end found [here](https://github.com/eagonzalez1/ga-balance-back-end), this is a social media app focused on sharing the user's dining experience. Unlike most restaurant review apps, Foodie allows reviewers to post specific dishes or cocktails and connect with other like-minded 'foodies.'
+This is the front end of a decoupled MERN Stack app that includes JWT Authentication. When combined with the back end found [here](https://github.com/eagonzalez1/ga-balance-back-end), this is a social media app that allows General Assembly (coding bootcamp) students share tips that help them in (4) different categories (coding, health/balance, job search, and entertainment).
 </br></br>
 
 ### [Link to view the deployed webiste](https://foodie-foodfrat.netlify.app/)
