@@ -7,7 +7,7 @@
 This is the front end of a decoupled MERN Stack app that includes JWT Authentication. When combined with the back end found [here](https://github.com/eagonzalez1/ga-balance-back-end), this is a social media app that allows General Assembly (coding bootcamp) students share tips that help them in (4) different categories (coding, health/balance, job search, and entertainment).
 </br></br>
 
-### [Link to view the deployed webiste](https://git.heroku.com/ga-balance.git)
+### [Link to view the deployed webiste](https://ga-balance.netlify.app/)
 
 [Back End GithHub Repo](https://github.com/eagonzalez1/ga-balance-back-end)
 </br></br>
