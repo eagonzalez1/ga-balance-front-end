@@ -8,6 +8,7 @@
     grid-column-gap: 15px;
     grid-row-gap: 15px;
     margin-left: 10px;
+    max-height: 90vh;
   }
 
 }

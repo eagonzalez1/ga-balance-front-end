@@ -21,14 +21,18 @@ const PostCard  = (props) => {
 
           </a>
               :
-          <p>No photo</p>
+          <p> No photo</p>
         }
         <div className="button-div">
+          { props.post.link ?
           <a 
             role="button"
             href={props.post.link}> 
             <button className="link-btn">Link</button>
           </a>
+          :
+          <p className="link-para">🚫 No Link</p>
+          }
           {props.user?.profile === props.post.profile &&
           <button 
             className="delete-btn" 
